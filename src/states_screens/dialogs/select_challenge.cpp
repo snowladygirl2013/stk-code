@@ -215,8 +215,8 @@ GUIEngine::EventPropagation SelectChallengeDialog::processEvent(const std::strin
         return GUIEngine::EVENT_BLOCK;
     }
 
-    if (eventSource == "icon_novice" || eventSource == "icon_intermediate" ||
-        eventSource == "icon_expert" || eventSource == "icon_supertux")
+    if (eventSource == "novice" || eventSource == "intermediate" ||
+        eventSource == "expert" || eventSource == "supertux")
     {
         const ChallengeData* challenge = unlock_manager->getChallengeData(m_challenge_id);
 
@@ -263,22 +263,22 @@ GUIEngine::EventPropagation SelectChallengeDialog::processEvent(const std::strin
         // network_manager->initCharacterDataStructures();
 
         // Launch challenge
-        if (eventSource == "icon_novice")
+        if (eventSource == "novice")
         {
             challenge->setRace(RaceManager::DIFFICULTY_EASY);
             UserConfigParams::m_difficulty = 0;
         }
-        else if (eventSource == "icon_intermediate")
+        else if (eventSource == "intermediate")
         {
             challenge->setRace(RaceManager::DIFFICULTY_MEDIUM);
             UserConfigParams::m_difficulty = 1;
         }
-        else if (eventSource == "icon_expert")
+        else if (eventSource == "expert")
         {
             challenge->setRace(RaceManager::DIFFICULTY_HARD);
             UserConfigParams::m_difficulty = 2;
         }
-        else if (eventSource == "icon_supertux")
+        else if (eventSource == "supertux")
         {
             challenge->setRace(RaceManager::DIFFICULTY_BEST);
             UserConfigParams::m_difficulty = 3;
